@@ -1,0 +1,84 @@
+{
+    "dashboard": {
+        "states": [
+            {
+                "component": "main",
+                "capability": "towertalent27877.bridgeServerStatus",
+                "version": 1,
+                "values": []
+            }
+        ],
+        "actions": [],
+        "basicPlus": []
+    },
+    "detailView": [
+        {
+            "component": "main",
+            "capability": "refresh",
+            "version": 1,
+            "values": [],
+            "patch": []
+        },
+        {
+            "component": "main",
+            "capability": "towertalent27877.bridgeServerStatus",
+            "version": 1,
+            "values": [],
+            "patch": []
+        },
+        {
+            "component": "main",
+            "capability": "towertalent27877.bridgeServerAddress",
+            "version": 1,
+            "values": [],
+            "patch": []
+        }
+    ],
+    "automation": {
+        "conditions": [
+            {
+                "component": "main",
+                "capability": "towertalent27877.bridgeServerStatus",
+                "version": 1,
+                "values": [],
+                "patch": [],
+                "exclusion": []
+            },
+            {
+                "component": "main",
+                "capability": "towertalent27877.bridgeServerAddress",
+                "version": 1,
+                "values": [],
+                "patch": [],
+                "exclusion": []
+            },
+            {
+                "component": "main",
+                "capability": "towertalent27877.health",
+                "version": 1,
+                "values": [],
+                "patch": [],
+                "exclusion": []
+            },
+            {
+                "component": "main",
+                "capability": "healthCheck",
+                "version": 1,
+                "values": [],
+                "patch": [],
+                "exclusion": []
+            }
+        ],
+        "actions": [
+            {
+                "component": "main",
+                "capability": "refresh",
+                "version": 1,
+                "values": [],
+                "patch": [],
+                "exclusion": []
+            }
+        ]
+    },
+    "type": "profile"
+}

@@ -1,0 +1,5 @@
+name: 'Sense Connector'
+packageKey: 'SenseConnector'
+permissions:
+  lan: {}
+  discovery: {}

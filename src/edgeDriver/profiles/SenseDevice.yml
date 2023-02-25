@@ -1,0 +1,20 @@
+name: SenseDevice.v1
+metadata:
+  vid: 8d8ed52f-4b0f-30aa-b20b-bbd9957e0eaf
+  ocfDeviceType: x.com.st.d.energymeter
+  mnmn: SmartThingsCommunity
+components:
+- id: main
+  capabilities:
+  - id: refresh
+    version: 1
+  - id: powerMeter
+    version: 1
+  - id: switch
+    version: 1
+  - id: healthCheck
+    version: 1
+  - id: towertalent27877.health
+  version: 1
+  categories:
+  - name: Others

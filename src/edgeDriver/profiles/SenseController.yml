@@ -1,0 +1,69 @@
+name: SenseController.v1
+components:
+- id: main
+  capabilities:
+  - id: refresh
+    version: 1
+  - id: towertalent27877.bridgeServerStatus
+    version: 1
+  - id: towertalent27877.bridgeServerAddress
+    version: 1
+  - id: towertalent27877.health
+    version: 1
+  - id: healthCheck
+    version: 1
+metadata:
+  deviceType: SenseController
+  mnmn: SmartThingsCommunity
+  ocfDeviceType: oic.d.wirelessrouter
+  vid: 1b6a3596-e413-331d-a9d1-7f9de1034723
+preferences:
+  - title: "Sense Email"
+    name: email
+    description: "E-mail used to login to Sense"
+    required: true
+    preferenceType: string
+    definition:
+      stringType: text
+      default: ""
+  - title: "Sense Password"
+    name: password
+    description: "Password used to login to Sense"
+    required: true
+    preferenceType: string
+    definition:
+      stringType: password
+      default: ""
+  - title: "Sense Polling Internal"
+    name: pollingInterval
+    description: "Refresh interval (in seconds)"
+    required: true
+    preferenceType: integer
+    definition:
+      minimum: 4
+      maximum: 3600
+      default: 30
+  - title: "Device include list"
+    name: includeList
+    escription: "(Optional) comma-separated list of device names to include"
+    required: false
+    preferenceType: string
+    definition:
+      stringType: text
+      default: ""
+  - title: "Server IP"
+    name: serverIp
+    description: "IP of server (leave blank to autodetect)"
+    required: false
+    preferenceType: string
+    definition:
+      stringType: text
+      default: ""
+  - title: "Server Port"
+    name: serverPort
+    description: "Port of server (leave blank to autodetect)"
+    required: false
+    preferenceType: string
+    definition:
+      stringType: text
+      default: ""

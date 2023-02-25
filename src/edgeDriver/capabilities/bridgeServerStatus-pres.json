@@ -1,0 +1,21 @@
+{
+    "dashboard": {
+        "states": [
+            {
+                "label": "Server Status: {{status.value}}"
+            }
+        ],
+        "actions": []
+    },
+    "detailView": [
+        {
+            "label": "Server Status",
+            "displayType": "state",
+            "state": {
+                "label": "{{status.value}}"
+            }
+        }
+    ],
+    "id": "towertalent27877.bridgeServerStatus",
+    "version": "1"
+}
