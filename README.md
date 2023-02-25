@@ -9,7 +9,7 @@ This SmartApp integrates Sense devices into SmartThings.
 ## Prerequisites and Network requirements
   - You will need a machine that can continually run the Sense server bridge application on your network. Examples include: Raspberry Pi, Linux server, Windows desktop, Mac, Unraid server, etc.
   - Your SmartThings hub and the machine running the bridge server application must be able to reach each other on the same LAN.
-  - In most cases, the hub will be able to use SSDP broadcasts to auto-detect the IP address of the server (assuming applicable port mapping, including UDP 1900, has been set up - see detailed instructions below).
+  - In most cases, the hub will be able to use SSDP broadcasts to auto-detect the IP address of the server (assuming applicable port mapping, including UDP 1901, has been set up - see detailed instructions below).
 
 
 ## Installation
@@ -49,7 +49,7 @@ This SmartApp integrates Sense devices into SmartThings.
     - Note that with some platforms, UDP broadcast will not work in bridge mode even if you explicitly map the UDP port. If that is the case, autodetection will not work, and you will need to set up the IP/Port manually on the Sense-Controller device in the SmartThings app.
     - Set the SENSE_SERVER_PORT variable to 8090 (this must be the same port that will be mapped to the host)
     - Map port 8090 TCP, container and host set the same
-    - Map UDP 1900, container and host set the same
+    - Map UDP 1901, container and host set the same
     - **Note: This assumes port 8090 is not already in use on your Docker host. You can change it to something else, but be sure to change both the environment variable and the port mapping.**
     - If using IP auto-detection, it is required that the SENSE_SERVER_PORT variable is set to the same port that is mapped to the host. This is because the app needs to know the publicly accessible port is so it can pass that information back to the hub.
  - For Synology:

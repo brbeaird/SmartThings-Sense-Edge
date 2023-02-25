@@ -2,7 +2,7 @@ local config = {}
 
 -- SSDP Config
 config.MC_ADDRESS='239.255.255.250'
-config.MC_PORT=1900
+config.MC_PORT=1901
 config.MC_TIMEOUT=2
 config.MSEARCH=table.concat({
   'M-SEARCH * HTTP/1.1',

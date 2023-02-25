@@ -250,7 +250,7 @@ let expressApp = app.listen(port, () => {
       {
           location: 'http://' + '0.0.0.0' + `:${port}/details`,
           udn: 'uuid:smartthings-brbeaird-sense',
-            sourcePort: 1900,
+            sourcePort: 1901,
           ssdpTtl: 2,
           allowWildcards : false
       }
