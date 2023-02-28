@@ -1,7 +1,7 @@
 # SmartThings-Sense-Edge
 SmartThings/Sense Integration via Edge
 
-This provides an integration between SmartThings and Sense using a LAN bridge server and an Edge driver.
+This provides an integration between SmartThings and Sense Home Energy Monitor using a LAN bridge server and an Edge driver.
 
 ### Overview
 This SmartApp integrates Sense devices into SmartThings.
