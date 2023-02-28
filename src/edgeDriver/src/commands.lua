@@ -223,7 +223,6 @@ function command_handler.refresh(driver, callingDevice, skipScan, firstAuth)
       --Update all devices to show server offline
       local device_list = driver:get_devices() --Grab existing devices
       for _, device in ipairs(device_list) do
-        log.info(device.id)
         device:offline()
 
         --Set health status cap (needed for routines)
