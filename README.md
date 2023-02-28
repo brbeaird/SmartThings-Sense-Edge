@@ -29,7 +29,7 @@ This SmartApp integrates Sense devices into SmartThings.
 
 
 ## Running the bridge server with an executable
- - Find the executable [for your OS here](https://github.com/brbeaird/SmartThings-Sense-Edge/tree/main/src/server/bin)
+ - Find the executable [for your OS here](https://github.com/brbeaird/SmartThings-Sense-Edge/releases)
  - Download it
  - Run the executable. After several seconds, you should see a message indicating it is waiting for a connection from the hub.
  - By default, the http server spins up on a random port. If you want to specify one, set the SENSE_SERVER_PORT environment variable on your system.
