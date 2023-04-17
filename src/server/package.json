@@ -2,7 +2,7 @@
     "name": "smartthings-edge-sense",
     "author": "Brian Beaird",
     "repository": "https://github.com/brbeaird/SmartThings-MyQ-Sense.git",
-    "version": "1.0.0",
+    "version": "1.0.1",
     "description": "Node agent for Sense Energy Monitor and SmartThings Edge",
     "main": "server.js",
     "scripts": {

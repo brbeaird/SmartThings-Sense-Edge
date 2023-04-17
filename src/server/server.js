@@ -33,6 +33,7 @@ async function senseLogin(email, password){
             //Save it
             log('Got new username/password from hub. Initializing connection.')
             mySense = await sense({email: email, password: password, verbose: false})   //Set up Sense API object and authenticate
+            log('Login successful!');
             setupWebsocketEvents();
             senseEmail = email;
             sensePassword = password;
@@ -62,24 +63,24 @@ const updateSenseDevices = async () => {
     }
 
     for (let device of devices){
-        if (device.tags.DeviceListAllowed == 'true'){
-            let isGuess = device.data?.tags?.NameUserGuess === 'true' ? true : false;
-            let devName = isGuess ? device.name.trim() + ' (?)' : device.name.trim();
+      if (device.tags.DeviceListAllowed == 'true' || device.id === 'solar'){
+          let isGuess = device.tags?.NameUserGuess === 'true' ? true : false;
+          let devName = isGuess ? device.name.trim() + ' (?)' : device.name.trim();
 
-            //If already exists, only refresh the name
-            if (deviceList[device.id]){
-              deviceList[device.id].name = devName;
-            }
-            else{
-              log(`Found ${devName} `);
-              deviceList[device.id] = {
-                id: device.id,
-                name: devName,
-                state: "off",
-                usage: 0
-            };
-            }
-        }
+          //If already exists, only refresh the name
+          if (deviceList[device.id]){
+            deviceList[device.id].name = devName;
+          }
+          else{
+            log(`Found ${devName} `);
+            deviceList[device.id] = {
+              id: device.id,
+              name: devName,
+              state: "off",
+              usage: 0
+          };
+          }
+      }
     }
 
     deviceList[totalDeviceId] = {
@@ -89,7 +90,7 @@ const updateSenseDevices = async () => {
       usage: 0
     };
   } catch (error) {
-    log(`Device list error: ${error.message}`)
+    log(`Device list error: ${error.message}\n${error.stack}`)
   }
 }
 
@@ -108,7 +109,7 @@ app.post('/senseDevices', async (req, res) => {
         //Schedule the device refresh
         if (!deviceListRefreshInterval){
           log(`Scheduling device refresh`)
-          await updateSenseDevices();
+          updateSenseDevices();
           deviceListRefreshInterval = setInterval(() => {
             updateSenseDevices();
           }, 1000*60*5);
@@ -117,7 +118,10 @@ app.post('/senseDevices', async (req, res) => {
         //Schedule the device refresh
         if (!websocketRefreshInterval){
           log(`Scheduling websocket refresh`)
-          mySense.openStream();
+          setTimeout(() => {
+            mySense.openStream();
+          }, 5000);
+
           websocketRefreshInterval = setInterval(() => {
             mySense.openStream();
           }, 1000*60);
@@ -174,6 +178,7 @@ app.post('/senseDevices', async (req, res) => {
                 for (let dev of data.payload.devices) {
                     if (!deviceList[dev.id]){
                         log(`Device missing: ${dev.id}`);
+                        continue;
                     }
 
                     //Don't go below 1 watt
@@ -190,7 +195,7 @@ app.post('/senseDevices', async (req, res) => {
 
             return 0;
         } catch (error) {
-            log(`Data processing error: ${error.message}`, 1);
+            log(`Data processing error: ${error.message}\n${error.stack}`, 1);
         }
     });
 
